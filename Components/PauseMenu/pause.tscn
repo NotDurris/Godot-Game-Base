@@ -1,0 +1,143 @@
+[gd_scene load_steps=6 format=3 uid="uid://c6innqpihkw82"]
+
+[ext_resource type="Theme" uid="uid://jf1feh0ph03d" path="res://Assets/Themes/_UI/pausemenu.tres" id="1_k75rr"]
+[ext_resource type="Script" uid="uid://ek8fecbfsp5q" path="res://Components/PauseMenu/PauseMenu.gd" id="2_s0op3"]
+[ext_resource type="Script" uid="uid://dwho0ustv05kx" path="res://Components/PauseMenu/VolumeControl.gd" id="6_18ydo"]
+[ext_resource type="Script" uid="uid://ckrvxjhw0mqio" path="res://Components/Buttons/MainMenuButton.gd" id="7_3o2jm"]
+[ext_resource type="PackedScene" uid="uid://ceb1ctsskiko1" path="res://Components/Buttons/button_effects_handler.tscn" id="8_t0lob"]
+
+[node name="Pause" type="CanvasLayer"]
+layer = 10
+
+[node name="PauseMenu" type="Control" parent="." node_paths=PackedStringArray("pause_menu", "background") groups=["PauseMenu"]]
+process_mode = 3
+z_index = 100
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_k75rr")
+script = ExtResource("2_s0op3")
+pause_menu = NodePath("CenterContainer")
+background = NodePath("Background")
+
+[node name="Background" type="ColorRect" parent="PauseMenu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="PauseMenu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(512, 512)
+
+[node name="PauseTile" type="Panel" parent="PauseMenu/CenterContainer"]
+custom_minimum_size = Vector2(500, 600)
+layout_mode = 2
+mouse_filter = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="PauseMenu/CenterContainer/PauseTile"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Control3" type="Control" parent="PauseMenu/CenterContainer/PauseTile/VBoxContainer2"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="HBoxContainer7" type="HBoxContainer" parent="PauseMenu/CenterContainer/PauseTile/VBoxContainer2"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="PauseMenu/CenterContainer/PauseTile/VBoxContainer2/HBoxContainer7"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.87451, 0.717647, 0.470588, 1)
+theme_override_colors/font_shadow_color = Color(0.34902, 0.294118, 0.235294, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_font_sizes/font_size = 80
+text = "Paused"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Control6" type="Control" parent="PauseMenu/CenterContainer/PauseTile/VBoxContainer2"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="PauseMenu/CenterContainer/PauseTile/VBoxContainer2"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label3" type="Label" parent="PauseMenu/CenterContainer/PauseTile/VBoxContainer2/HBoxContainer2"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.87451, 0.717647, 0.470588, 1)
+theme_override_colors/font_shadow_color = Color(0.34902, 0.294118, 0.235294, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_font_sizes/font_size = 32
+text = "Volume"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PauseMenu/CenterContainer/PauseTile/VBoxContainer2"]
+layout_mode = 2
+alignment = 1
+
+[node name="HSlider" type="HSlider" parent="PauseMenu/CenterContainer/PauseTile/VBoxContainer2/HBoxContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+max_value = 1.0
+step = 0.001
+script = ExtResource("6_18ydo")
+bus_name = "Master"
+
+[node name="Control2" type="Control" parent="PauseMenu/CenterContainer/PauseTile/VBoxContainer2"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="HBoxContainer6" type="HBoxContainer" parent="PauseMenu/CenterContainer/PauseTile/VBoxContainer2"]
+layout_mode = 2
+alignment = 1
+
+[node name="Button" type="Button" parent="PauseMenu/CenterContainer/PauseTile/VBoxContainer2/HBoxContainer6"]
+layout_mode = 2
+text = "Main Menu"
+script = ExtResource("7_3o2jm")
+target_level = "MainMenu"
+
+[node name="ButtonEffectsHandler" parent="PauseMenu/CenterContainer/PauseTile/VBoxContainer2/HBoxContainer6/Button" instance=ExtResource("8_t0lob")]
+
+[node name="Control" type="Control" parent="PauseMenu/CenterContainer/PauseTile/VBoxContainer2"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="Exit" type="Button" parent="PauseMenu/CenterContainer/PauseTile"]
+layout_mode = 0
+offset_left = 442.0
+offset_top = 12.0
+offset_right = 489.0
+offset_bottom = 63.0
+pivot_offset = Vector2(23.5, 25.5)
+text = "close"
+
+[node name="ButtonEffectsHandler" parent="PauseMenu/CenterContainer/PauseTile/Exit" instance=ExtResource("8_t0lob")]
+
+[connection signal="pressed" from="PauseMenu/CenterContainer/PauseTile/VBoxContainer2/HBoxContainer6/Button" to="PauseMenu" method="unpause"]
+[connection signal="pressed" from="PauseMenu/CenterContainer/PauseTile/VBoxContainer2/HBoxContainer6/Button" to="PauseMenu/CenterContainer/PauseTile/VBoxContainer2/HBoxContainer6/Button" method="ChangeLevel"]
+[connection signal="pressed" from="PauseMenu/CenterContainer/PauseTile/Exit" to="PauseMenu" method="unpause"]

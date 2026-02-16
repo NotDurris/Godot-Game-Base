@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=3 uid="uid://bwc5tv333qe14"]
+
+[ext_resource type="Texture2D" uid="uid://qv1xjxsw6cdf" path="res://Assets/VanShakePalette.png" id="1_qq2c3"]
+[ext_resource type="PackedScene" uid="uid://vufjshvp8j7s" path="res://Player/cat.tscn" id="2_ckjea"]
+[ext_resource type="PackedScene" uid="uid://fqokmq4mn3vu" path="res://Yarn/yarn.tscn" id="3_alpkq"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sq8ij"]
+texture = ExtResource("1_qq2c3")
+texture_region_size = Vector2i(32, 32)
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+8:0/0 = 0
+9:0/0 = 0
+10:0/0 = 0
+11:0/0 = 0
+12:0/0 = 0
+13:0/0 = 0
+14:0/0 = 0
+15:0/0 = 0
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_gx73a"]
+tile_size = Vector2i(32, 32)
+sources/1 = SubResource("TileSetAtlasSource_sq8ij")
+
+[node name="LevelTemplate" type="Node2D"]
+
+[node name="GridMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_gx73a")
+format = 2
+layer_0/tile_data = PackedInt32Array(-196612, 1, 0, -196611, 1, 0, -196610, 1, 0, -196609, 1, 0, -262144, 1, 0, -262143, 1, 0, -262142, 1, 0, -262141, 1, 0, -196615, 1, 0, -196614, 1, 0, -196613, 1, 0, -262140, 1, 0, -262139, 1, 0, -262138, 1, 0, -196602, 1, 0, -196603, 1, 0, -196604, 1, 0, -196605, 1, 0, -196606, 1, 0, -196607, 1, 0, -196608, 1, 0, -131073, 1, 0, -131074, 1, 0, -131075, 1, 0, -131076, 1, 0, -131077, 1, 0, -131078, 1, 0, -131079, 1, 0, -65543, 1, 0, -7, 1, 0, 65529, 1, 0, 131065, 1, 0, 196601, 1, 0, 262137, 1, 0, 262138, 1, 0, 262139, 1, 0, 262140, 1, 0, 262141, 1, 0, 262142, 1, 0, 262143, 1, 0, 196608, 1, 0, 196609, 1, 0, 196610, 1, 0, 196611, 1, 0, 196612, 1, 0, 196613, 1, 0, 196614, 1, 0, 131078, 1, 0, 65542, 1, 0, 6, 1, 0, -65530, 1, 0, -131066, 1, 0, 131077, 1, 0, 131076, 1, 0, 131075, 1, 0, 131074, 1, 0, 131073, 1, 0, 131072, 1, 0, 196607, 1, 0, 196606, 1, 0, 196605, 1, 0, 196604, 1, 0, 196603, 1, 0, 131067, 1, 0, 131066, 1, 0, 65530, 1, 0, -6, 1, 0, 196602, 1, 0, -65542, 1, 0, -65541, 1, 0, -65540, 1, 0, -65539, 1, 0, -65538, 1, 0, -65537, 1, 0, -131072, 1, 0, -131071, 1, 0, -131070, 1, 0, -131069, 1, 0, -131068, 1, 0, -131067, 1, 0, -65531, 1, 0, 5, 1, 0, 65541, 1, 0, 65540, 1, 0, 65539, 1, 0, 65538, 1, 0, 65537, 1, 0, 65536, 1, 0, 131071, 1, 0, 131070, 1, 0, 131069, 1, 0, 131068, 1, 0, 65532, 1, 0, 65531, 1, 0, -5, 1, 0, -4, 1, 0, -3, 1, 0, -2, 1, 0, -1, 1, 0, -65536, 1, 0, -65535, 1, 0, -65534, 1, 0, -65533, 1, 0, -65532, 1, 0, 4, 1, 0, 3, 1, 0, 65533, 1, 0, 2, 1, 0, 65534, 983041, 0, 65535, 983041, 0, 0, 983041, 0, 1, 983041, 0)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2.5, 2.5)
+
+[node name="Cat" parent="." instance=ExtResource("2_ckjea")]
+position = Vector2(-48, 16)
+
+[node name="Yarn" parent="." instance=ExtResource("3_alpkq")]
+start_position = Vector2i(0, 0)
