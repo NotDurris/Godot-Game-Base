@@ -6,5 +6,8 @@
 process_mode = 3
 script = ExtResource("1_5yyfr")
 
-[node name="Music" type="AudioStreamPlayer2D" parent="."]
+[node name="Music" type="AudioStreamPlayer" parent="."]
+volume_db = -5.0
+
+[node name="ButtonClick" type="AudioStreamPlayer" parent="."]
 volume_db = -5.0
