@@ -1,6 +1,6 @@
 extends Node
 
-var sounds : Array[AudioStreamPlayer2D]
+var sounds : Array[AudioStreamPlayer]
 
 func _ready() -> void:
 	sounds.assign(get_children())
