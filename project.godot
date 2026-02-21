@@ -18,6 +18,10 @@ config/name="GameTemplate"
 run/main_scene="res://Levels/ScenesLogic/scene_switcher.tscn"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 
+[audio]
+
+buses/default_bus_layout="uid://bjdurj1gm67bn"
+
 [autoload]
 
 AudioManager="*res://Components/AudioManager/audio_manager.tscn"

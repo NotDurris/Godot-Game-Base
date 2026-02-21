@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://vxugdlltkiw3"]
+[gd_scene format=3 uid="uid://vxugdlltkiw3"]
 
 [ext_resource type="Script" uid="uid://dye4xxdqa2tw0" path="res://Levels/ScenesLogic/scene_switcher.gd" id="1_cq6vg"]
 [ext_resource type="PackedScene" uid="uid://dr6p4s5grffi7" path="res://Levels/MainMenu.tscn" id="2_kmwfx"]
@@ -146,19 +146,18 @@ _data = {
 &"transition_out": SubResource("Animation_30ugf")
 }
 
-[node name="SceneSwitcher" type="Node" node_paths=PackedStringArray("current_level", "menu_button")]
+[node name="SceneSwitcher" type="Node" unique_id=870037541 node_paths=PackedStringArray("current_level")]
 process_mode = 3
 script = ExtResource("1_cq6vg")
 current_level = NodePath("MainMenu")
-menu_button = NodePath("")
 
-[node name="Pause" parent="." instance=ExtResource("2_m1eww")]
+[node name="Pause" parent="." unique_id=597564349 instance=ExtResource("2_m1eww")]
 
-[node name="MainMenu" parent="." instance=ExtResource("2_kmwfx")]
+[node name="MainMenu" parent="." unique_id=389131688 instance=ExtResource("2_kmwfx")]
 
-[node name="Transition" type="CanvasLayer" parent="."]
+[node name="Transition" type="CanvasLayer" parent="." unique_id=719102643]
 
-[node name="Overlay" type="ColorRect" parent="Transition"]
+[node name="Overlay" type="ColorRect" parent="Transition" unique_id=2020237204]
 material = SubResource("ShaderMaterial_jij0e")
 anchors_preset = 15
 anchor_right = 1.0
@@ -168,10 +167,8 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(0.156863, 0.156863, 0.180392, 1)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1148210590]
 process_mode = 3
-libraries = {
-&"": SubResource("AnimationLibrary_1r10h")
-}
+libraries/ = SubResource("AnimationLibrary_1r10h")
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

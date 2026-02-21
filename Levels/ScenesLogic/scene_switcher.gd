@@ -2,7 +2,6 @@ extends Node
 
 @export var current_level : Level
 @onready var anim : AnimationPlayer = $AnimationPlayer
-@export var menu_button : MenuBtn
 
 var next_level : Level = null
 
@@ -31,14 +30,12 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 			current_level.Cleanup()
 			add_child(next_level)
 			current_level = next_level
-			menu_button.level = current_level
 			next_level = null
 			anim.play("transition_in")
 		"cat_out":
 			current_level.Cleanup()
 			add_child(next_level)
 			current_level = next_level
-			menu_button.level = current_level
 			next_level = null
 			anim.play("transition_in")
 		"transition_in":
