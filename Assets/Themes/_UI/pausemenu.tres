@@ -1,7 +1,7 @@
 [gd_resource type="Theme" format=3 uid="uid://jf1feh0ph03d"]
 
 [ext_resource type="FontFile" uid="uid://wvdspsgmxewv" path="res://Assets/Fonts/Nunito-SemiBold.ttf" id="1_rqq18"]
-[ext_resource type="StyleBox" uid="uid://qcp3kjexcetq" path="res://Assets/Themes/Panels/pause_panel.tres" id="2_4k5no"]
+[ext_resource type="StyleBox" uid="uid://qcp3kjexcetq" path="res://Assets/Themes/Panels/panel_background.tres" id="2_rqq18"]
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_jyd14"]
 color = Color(0.323, 0.361, 0.38, 0.6862745)
@@ -11,10 +11,12 @@ thickness = 3
 
 [resource]
 Button/fonts/font = ExtResource("1_rqq18")
+HBoxContainer/constants/separation = 0
 HSeparator/constants/separation = 2
 HSeparator/styles/separator = SubResource("StyleBoxLine_jyd14")
 Label/colors/font_color = Color(0.8326371, 0.93274665, 0.9702223, 1)
 Label/font_sizes/font_size = 32
 Label/fonts/font = ExtResource("1_rqq18")
-Panel/styles/panel = ExtResource("2_4k5no")
+Panel/styles/panel = ExtResource("2_rqq18")
+PanelContainer/styles/panel = ExtResource("2_rqq18")
 VBoxContainer/constants/separation = 0
