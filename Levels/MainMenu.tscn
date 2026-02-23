@@ -4,6 +4,7 @@
 [ext_resource type="Theme" uid="uid://mdn2knq2jrhm" path="res://Assets/Themes/_UI/mainmenu.tres" id="2_65ows"]
 [ext_resource type="Script" uid="uid://ds3m6bxligeht" path="res://Levels/ScenesLogic/change_level.gd" id="4_2ld8x"]
 [ext_resource type="PackedScene" uid="uid://ceb1ctsskiko1" path="res://Components/UI/Buttons/button_effects_handler.tscn" id="4_mnhpt"]
+[ext_resource type="Script" uid="uid://dbgbq51vkocsj" path="res://Components/MainMenu/quit_logic.gd" id="5_17ajd"]
 [ext_resource type="PackedScene" uid="uid://lbja0ku3jm2o" path="res://Components/UI/UIPanel/ui_panel.tscn" id="5_gerv3"]
 [ext_resource type="PackedScene" uid="uid://buao4cwlay7bi" path="res://Components/UI/UIContents/options_contents.tscn" id="6_ooo5j"]
 
@@ -92,15 +93,18 @@ layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 4
 text = "Quit"
+script = ExtResource("5_17ajd")
 
 [node name="ButtonEffectsHandler" parent="MainMenu/Main/Buttons/Quit" unique_id=1765594775 instance=ExtResource("4_mnhpt")]
 
 [node name="Options_UIPanel" parent="MainMenu" unique_id=1651188732 instance=ExtResource("5_gerv3")]
+visible = false
 layout_mode = 1
 panel_title = "Options"
 panel_contents = ExtResource("6_ooo5j")
 
 [node name="Credits_UIPanel" parent="MainMenu" unique_id=1256259504 instance=ExtResource("5_gerv3")]
+visible = false
 layout_mode = 1
 panel_title = "Credits"
 
