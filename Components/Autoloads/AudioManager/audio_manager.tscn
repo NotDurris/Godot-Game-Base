@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://co8hfdg348x1h"]
 
-[ext_resource type="Script" uid="uid://g4b23cn5juqd" path="res://Components/AudioManager/audio_manager.gd" id="1_5yyfr"]
+[ext_resource type="Script" uid="uid://g4b23cn5juqd" path="res://Components/Autoloads/AudioManager/audio_manager.gd" id="1_5yyfr"]
 
 [node name="AudioManager" type="Node" unique_id=624646947]
 process_mode = 3

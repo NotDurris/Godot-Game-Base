@@ -24,7 +24,8 @@ buses/default_bus_layout="uid://bjdurj1gm67bn"
 
 [autoload]
 
-AudioManager="*res://Components/AudioManager/audio_manager.tscn"
+AudioManager="*res://Components/Autoloads/AudioManager/audio_manager.tscn"
+GlobalSignals="*uid://bej2xyqf7mwg6"
 
 [display]
 
