@@ -102,5 +102,5 @@ panel_title = "Options"
 layout_mode = 1
 panel_title = "Credits"
 
-[connection signal="pressed" from="MainMenu/Main/Buttons/Options" to="MainMenu/Options_UIPanel" method="show_panel"]
-[connection signal="pressed" from="MainMenu/Main/Buttons/Credits" to="MainMenu/Credits_UIPanel" method="show_panel"]
+[connection signal="pressed" from="MainMenu/Main/Buttons/Options" to="MainMenu/Options_UIPanel" method="open_panel"]
+[connection signal="pressed" from="MainMenu/Main/Buttons/Credits" to="MainMenu/Credits_UIPanel" method="open_panel"]

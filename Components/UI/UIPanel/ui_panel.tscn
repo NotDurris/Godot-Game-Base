@@ -83,8 +83,14 @@ theme_override_styles/focus = ExtResource("3_f6fbm")
 
 [node name="ButtonEffectsHandler" parent="MarginContainer/HBoxContainer/PanelContainer/VBoxContainer/TitleBar/Close/CloseButton" unique_id=1061448880 instance=ExtResource("4_5t3e3")]
 
+[node name="ContentContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/PanelContainer/VBoxContainer" unique_id=1753221747]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
 [node name="Spacer2" type="Control" parent="MarginContainer/HBoxContainer" unique_id=603292399]
 layout_mode = 2
 size_flags_horizontal = 3
-
-[connection signal="pressed" from="MarginContainer/HBoxContainer/PanelContainer/VBoxContainer/TitleBar/Close/CloseButton" to="." method="hide_panel"]

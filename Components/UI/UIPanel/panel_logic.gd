@@ -1,25 +1,40 @@
+class_name UIPanel
 extends Control
 
+signal on_panel_close_button_clicked
+signal on_panel_closed
+signal on_panel_opened
+
+
 @export var panel_title : String
-var background_colour : Color
+@export var panel_contents : PackedScene
 
 @export_group("Panel Animation Settings")
+@export_subgroup("open")
 @export var show_duration : float = 0.4
 @export var show_tween_trans : Tween.TransitionType = Tween.TRANS_BACK
 @export var show_tween_ease : Tween.EaseType = Tween.EASE_OUT
 
+@export_subgroup("close")
 @export var hide_duration : float = 0.3
 @export var hide_tween_trans : Tween.TransitionType = Tween.TRANS_BACK
 @export var hide_tween_ease : Tween.EaseType = Tween.EASE_IN
 
 @onready var title_label : Label = $MarginContainer/HBoxContainer/PanelContainer/VBoxContainer/TitleBar/Title
 @onready var background : ColorRect = $Background
-@onready var contents : Control = $MarginContainer 
+@onready var foreground : Control = $MarginContainer
+@onready var close_button : Button = $MarginContainer/HBoxContainer/PanelContainer/VBoxContainer/TitleBar/Close/CloseButton
+@onready var content_container : Control = $MarginContainer/HBoxContainer/PanelContainer/VBoxContainer/ContentContainer
 
+var background_colour : Color
 
 func _ready() -> void:
 	title_label.text = panel_title
 	background_colour = background.color
+	
+	close_button.pressed.connect(func() : on_panel_close_button_clicked.emit())
+	on_panel_close_button_clicked.connect(close_panel)
+	
 	initialise_layout()
 	hide()
 
@@ -28,19 +43,26 @@ func initialise_layout():
 	set_anchor_and_offset(SIDE_BOTTOM, 1.0, 0)
 	set_anchor_and_offset(SIDE_LEFT, 0.0, 0)
 	set_anchor_and_offset(SIDE_TOP, 0.0, 0)
-	contents.pivot_offset = size * 0.5
+	foreground.pivot_offset = size * 0.5
+	
+	if panel_contents == null : return
+	
+	var instanced_contents = panel_contents.instantiate()
+	content_container.add_child(instanced_contents)
 
-func show_panel():
+func open_panel():
 	show()
-	contents.scale = Vector2.ZERO
+	foreground.scale = Vector2.ZERO
 	var tweener = create_tween()
 	tweener.set_trans(show_tween_trans).set_ease(show_tween_ease).set_parallel()
-	tweener.tween_property(contents, "scale", Vector2.ONE, show_duration)
+	tweener.tween_property(foreground, "scale", Vector2.ONE, show_duration)
 	tweener.tween_property(background, "color", background_colour, show_duration * 0.5)
+	tweener.chain().tween_callback(on_panel_opened.emit)
 
-func hide_panel():
+func close_panel():
 	var tweener = create_tween()
 	tweener.set_trans(hide_tween_trans).set_ease(hide_tween_ease).set_parallel()
-	tweener.tween_property(contents, "scale", Vector2.ZERO, hide_duration)
+	tweener.tween_property(foreground, "scale", Vector2.ZERO, hide_duration)
 	tweener.tween_property(background, "color", Color(background_colour, 0.0), hide_duration * 1.2)
 	tweener.chain().tween_callback(hide)
+	tweener.chain().tween_callback(on_panel_closed.emit)
