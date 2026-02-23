@@ -3,24 +3,35 @@
 [ext_resource type="Script" uid="uid://ccy4xsxwcr4u8" path="res://Levels/ScenesLogic/level.gd" id="1_720qt"]
 [ext_resource type="Theme" uid="uid://mdn2knq2jrhm" path="res://Assets/Themes/_UI/mainmenu.tres" id="2_65ows"]
 [ext_resource type="Script" uid="uid://ds3m6bxligeht" path="res://Levels/ScenesLogic/change_level.gd" id="4_2ld8x"]
-[ext_resource type="PackedScene" uid="uid://ceb1ctsskiko1" path="res://Components/UI/Buttons/button_effects_handler.tscn" id="4_mnhpt"]
 [ext_resource type="Script" uid="uid://dbgbq51vkocsj" path="res://Components/MainMenu/quit_logic.gd" id="5_17ajd"]
 [ext_resource type="PackedScene" uid="uid://lbja0ku3jm2o" path="res://Components/UI/UIPanel/ui_panel.tscn" id="5_gerv3"]
 [ext_resource type="PackedScene" uid="uid://buao4cwlay7bi" path="res://Components/UI/UIContents/options_contents.tscn" id="6_ooo5j"]
+
+[sub_resource type="Gradient" id="Gradient_gerv3"]
+interpolation_mode = 2
+colors = PackedColorArray(0, 0, 0, 0, 0.027299998, 0.06288333, 0.07, 0.6117647)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_17ajd"]
+gradient = SubResource("Gradient_gerv3")
+width = 256
+height = 256
+use_hdr = true
+fill = 1
+fill_from = Vector2(0.5, 0.5)
 
 [node name="MainMenu" type="Node" unique_id=6212812]
 script = ExtResource("1_720qt")
 current_level = "MainMenu"
 next_level = "Game"
 
-[node name="Background" type="ColorRect" parent="." unique_id=1984291040]
+[node name="Background" type="TextureRect" parent="." unique_id=938020610]
 z_index = -10
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 1)
+texture = SubResource("GradientTexture2D_17ajd")
 
 [node name="MainMenu" type="Control" parent="." unique_id=895278676]
 z_index = 10
@@ -52,7 +63,7 @@ clip_contents = false
 custom_minimum_size = Vector2(900, 0)
 layout_mode = 2
 bbcode_enabled = true
-text = "TITLE"
+text = "[wave]TITLE"
 fit_content = true
 scroll_active = false
 vertical_alignment = 1
@@ -70,15 +81,11 @@ script = ExtResource("4_2ld8x")
 target_level = "Game"
 level = NodePath("../../../..")
 
-[node name="ButtonEffectsHandler" parent="MainMenu/Main/Buttons/Start" unique_id=1032871446 instance=ExtResource("4_mnhpt")]
-
 [node name="Options" type="Button" parent="MainMenu/Main/Buttons" unique_id=421155739]
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 4
 text = "Options"
-
-[node name="ButtonEffectsHandler" parent="MainMenu/Main/Buttons/Options" unique_id=2118135588 instance=ExtResource("4_mnhpt")]
 
 [node name="Credits" type="Button" parent="MainMenu/Main/Buttons" unique_id=1207000227]
 layout_mode = 2
@@ -86,16 +93,12 @@ size_flags_horizontal = 8
 size_flags_vertical = 4
 text = "Credits"
 
-[node name="ButtonEffectsHandler" parent="MainMenu/Main/Buttons/Credits" unique_id=749534321 instance=ExtResource("4_mnhpt")]
-
 [node name="Quit" type="Button" parent="MainMenu/Main/Buttons" unique_id=1009462710]
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 4
 text = "Quit"
 script = ExtResource("5_17ajd")
-
-[node name="ButtonEffectsHandler" parent="MainMenu/Main/Buttons/Quit" unique_id=1765594775 instance=ExtResource("4_mnhpt")]
 
 [node name="Options_UIPanel" parent="MainMenu" unique_id=1651188732 instance=ExtResource("5_gerv3")]
 visible = false

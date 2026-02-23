@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://lbja0ku3jm2o"]
 
 [ext_resource type="StyleBox" uid="uid://qcp3kjexcetq" path="res://Assets/Themes/Panels/panel_background.tres" id="1_alvg1"]
+[ext_resource type="Theme" uid="uid://boysjsm1bldbj" path="res://Assets/Themes/_UI/uipanel.tres" id="1_f6fbm"]
 [ext_resource type="Script" uid="uid://dcdl8x4jty1ec" path="res://Components/UI/UIPanel/panel_logic.gd" id="1_wlgud"]
 [ext_resource type="StyleBox" uid="uid://dqn7kpkgl3va5" path="res://Assets/Themes/Panels/title_bar_background.tres" id="2_wlgud"]
 [ext_resource type="StyleBox" uid="uid://bnm1kcs34crjn" path="res://Assets/Themes/Buttons/close/button.tres" id="3_f6fbm"]
@@ -13,6 +14,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_f6fbm")
 script = ExtResource("1_wlgud")
 
 [node name="Background" type="ColorRect" parent="." unique_id=1234555341]
@@ -60,10 +62,11 @@ theme_override_constants/separation = 0
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_colors/font_color = Color(0.14901961, 0.14901961, 0.1882353, 1)
 theme_override_styles/normal = ExtResource("2_wlgud")
 text = "Title"
+horizontal_alignment = 1
 vertical_alignment = 1
+uppercase = true
 
 [node name="Close" type="Control" parent="MarginContainer/HBoxContainer/PanelContainer/VBoxContainer/TitleBar" unique_id=1991571259]
 layout_mode = 2
@@ -71,8 +74,9 @@ layout_mode = 2
 [node name="CloseButton" type="Button" parent="MarginContainer/HBoxContainer/PanelContainer/VBoxContainer/TitleBar/Close" unique_id=1618942533]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 0
-offset_left = -32.0
+offset_left = -43.0
 offset_top = 4.0
+offset_right = -11.0
 offset_bottom = 36.0
 pivot_offset = Vector2(23.5, 25.5)
 theme_override_styles/normal = ExtResource("3_f6fbm")
@@ -86,10 +90,6 @@ theme_override_styles/focus = ExtResource("3_f6fbm")
 [node name="ContentContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/PanelContainer/VBoxContainer" unique_id=1753221747]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_constants/margin_left = 16
-theme_override_constants/margin_top = 16
-theme_override_constants/margin_right = 16
-theme_override_constants/margin_bottom = 16
 
 [node name="Spacer2" type="Control" parent="MarginContainer/HBoxContainer" unique_id=603292399]
 layout_mode = 2

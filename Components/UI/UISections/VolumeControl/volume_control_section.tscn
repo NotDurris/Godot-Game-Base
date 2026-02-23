@@ -2,8 +2,9 @@
 
 [ext_resource type="Script" uid="uid://dwho0ustv05kx" path="res://Components/UI/UISections/VolumeControl/VolumeControl.gd" id="1_fm6dh"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bvo3n"]
-bg_color = Color(0.41215244, 0.4121525, 0.41215235, 0.22352941)
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fm6dh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hpkv4"]
 
 [node name="VolumeControlSection" type="VBoxContainer" unique_id=10756484]
 anchors_preset = 15
@@ -16,6 +17,7 @@ theme_override_constants/separation = 0
 [node name="MasterVolume" type="PanelContainer" parent="." unique_id=578814275]
 custom_minimum_size = Vector2(0, 64)
 layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_fm6dh")
 
 [node name="Hbox" type="HBoxContainer" parent="MasterVolume" unique_id=1995212168]
 layout_mode = 2
@@ -34,7 +36,6 @@ bus_name = "Master"
 [node name="SFXVolume" type="PanelContainer" parent="." unique_id=646613892]
 custom_minimum_size = Vector2(0, 64)
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_bvo3n")
 
 [node name="Hbox" type="HBoxContainer" parent="SFXVolume" unique_id=1858894872]
 layout_mode = 2
@@ -53,6 +54,7 @@ bus_name = "SFX"
 [node name="MusicVolume" type="PanelContainer" parent="." unique_id=669848252]
 custom_minimum_size = Vector2(0, 64)
 layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_hpkv4")
 
 [node name="Hbox" type="HBoxContainer" parent="MusicVolume" unique_id=1632264295]
 layout_mode = 2

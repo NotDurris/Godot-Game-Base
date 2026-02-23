@@ -1,0 +1,7 @@
+[gd_resource type="Theme" format=3 uid="uid://boysjsm1bldbj"]
+
+[ext_resource type="FontFile" uid="uid://wvdspsgmxewv" path="res://Assets/Fonts/Nunito-SemiBold.ttf" id="1_sua85"]
+
+[resource]
+Label/font_sizes/font_size = 32
+Label/fonts/font = ExtResource("1_sua85")

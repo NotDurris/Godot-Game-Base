@@ -1,8 +1,20 @@
 [gd_resource type="Theme" format=3 uid="uid://mdn2knq2jrhm"]
 
 [ext_resource type="FontFile" uid="uid://wvdspsgmxewv" path="res://Assets/Fonts/Nunito-SemiBold.ttf" id="1_g7d1g"]
+[ext_resource type="StyleBox" uid="uid://fc0ry2u4t5tx" path="res://Assets/Themes/Buttons/menu/menu_normal_button.tres" id="2_d16nt"]
+[ext_resource type="StyleBox" uid="uid://bu6mp0d1w6334" path="res://Assets/Themes/Buttons/menu/menu_hover_button.tres" id="3_a043s"]
+[ext_resource type="StyleBox" uid="uid://tr2c7sm04vdp" path="res://Assets/Themes/Buttons/menu/menu_pressed_button.tres" id="3_osanf"]
 
 [resource]
+Button/font_sizes/font_size = 32
+Button/fonts/font = ExtResource("1_g7d1g")
+Button/styles/disabled = ExtResource("2_d16nt")
+Button/styles/focus = ExtResource("3_osanf")
+Button/styles/hover = ExtResource("3_a043s")
+Button/styles/normal = ExtResource("2_d16nt")
+Button/styles/pressed = ExtResource("3_osanf")
 HBoxContainer/constants/separation = 0
 Label/font_sizes/font_size = 32
 Label/fonts/font = ExtResource("1_g7d1g")
+RichTextLabel/font_sizes/normal_font_size = 64
+RichTextLabel/fonts/normal_font = ExtResource("1_g7d1g")
