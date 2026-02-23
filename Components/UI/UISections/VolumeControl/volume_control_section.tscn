@@ -1,0 +1,69 @@
+[gd_scene format=3 uid="uid://cghp40xvj72iu"]
+
+[ext_resource type="Script" uid="uid://dwho0ustv05kx" path="res://Components/UI/UISections/VolumeControl/VolumeControl.gd" id="1_fm6dh"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bvo3n"]
+bg_color = Color(0.41215244, 0.4121525, 0.41215235, 0.22352941)
+
+[node name="VolumeControlSection" type="VBoxContainer" unique_id=10756484]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="MasterVolume" type="PanelContainer" parent="." unique_id=578814275]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+
+[node name="Hbox" type="HBoxContainer" parent="MasterVolume" unique_id=1995212168]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MasterVolume/Hbox" unique_id=1201007132]
+layout_mode = 2
+text = "master"
+
+[node name="HSlider" type="HSlider" parent="MasterVolume/Hbox" unique_id=1000990096]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+script = ExtResource("1_fm6dh")
+bus_name = "Master"
+
+[node name="SFXVolume" type="PanelContainer" parent="." unique_id=646613892]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_bvo3n")
+
+[node name="Hbox" type="HBoxContainer" parent="SFXVolume" unique_id=1858894872]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="SFXVolume/Hbox" unique_id=174036915]
+layout_mode = 2
+text = "sfx"
+
+[node name="HSlider" type="HSlider" parent="SFXVolume/Hbox" unique_id=1119216912]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+script = ExtResource("1_fm6dh")
+bus_name = "SFX"
+
+[node name="MusicVolume" type="PanelContainer" parent="." unique_id=669848252]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+
+[node name="Hbox" type="HBoxContainer" parent="MusicVolume" unique_id=1632264295]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MusicVolume/Hbox" unique_id=426122598]
+layout_mode = 2
+text = "music"
+
+[node name="HSlider" type="HSlider" parent="MusicVolume/Hbox" unique_id=1858723501]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+script = ExtResource("1_fm6dh")
+bus_name = "Music"

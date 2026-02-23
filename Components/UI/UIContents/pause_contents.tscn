@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://dmofh5y0nn2id"]
+
+[ext_resource type="PackedScene" uid="uid://cghp40xvj72iu" path="res://Components/UI/UISections/VolumeControl/volume_control_section.tscn" id="1_vntlq"]
+
+[node name="PauseContents" type="MarginContainer" unique_id=1784671525]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VolumeControlSection" parent="." unique_id=10756484 instance=ExtResource("1_vntlq")]
+layout_mode = 2
